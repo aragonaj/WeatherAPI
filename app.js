@@ -3,7 +3,8 @@ require('dotenv').config(); // Cargar variables de entorno desde .env
 const express = require('express');
 const path = require('path');
 const weatherRoutes = require('./app_server/routes/weatherRoutes');
-const { PORT } = require('./config/env.config');
+// const { PORT } = require('./config/env.config');
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -22,5 +23,6 @@ app.get('/', (req, res) => {
 
 // Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en http://localhost:${PORT}`);
+  // console.log(`Servidor escuchando en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
