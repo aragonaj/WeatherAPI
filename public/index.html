@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A weather API, returns rain conditions.">
+    <meta name="keywords" content="HTML, weather, rain, API">
+    <meta name="author" content="A. J. Aragón">
+    <meta name="robots" content="index, follow">
+
+    <title>WeatherAPI</title>
+
+    <link src="./css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1 class="title">CONSULTA DE LLUVIA</h1>
+
+    <input type="text" id="city" placeholder="Enter city">
+    <button onclick="search()">Buscar</button>
+
+    <p>O introduce coordenadas:</p>
+    <label for="lat">Latitud:</label>
+    <input type="number" id="lat" placeholder="Ej: 42.3268824" step="0.0001">
+
+    <label for="lon">Longitud:</label>
+    <input type="number" id="lon" placeholder="Ej: 0.07126909" step="0.0001">
+
+    <div id="result"></div>
+
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>

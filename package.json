@@ -1,0 +1,19 @@
+{
+  "name": "weatherapi",
+  "version": "1.0.0",
+  "description": "- https://www.weatherapi.com/signup.aspx\r - RENDER.com",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "node-fetch": "^2.7.0",
+    "nodemon": "^3.1.10"
+  }
+}
