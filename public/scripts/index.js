@@ -1,5 +1,5 @@
 async function search() {
-  const city = document.getElementById('city').value;
+  const city = document.getElementById('cityInput').value.trim();
 
   // añadido
   const lat = document.getElementById('lat').value.trim();
