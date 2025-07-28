@@ -1,7 +1,6 @@
 async function search() {
   const city = document.getElementById('cityInput').value.trim();
 
-  // añadido
   const lat = document.getElementById('lat').value.trim();
   const lon = document.getElementById('lon').value.trim();
 
@@ -31,45 +30,24 @@ async function search() {
 
     const div = document.getElementById('result');
     div.innerHTML = `
-      <h2>Forecast for ${data.city}, ${data.country}</h2>
-      <ul>
+      <h2 class="h2-title">Forecast for ${data.city}, ${data.country}</h2>
+      <ul class="list">
         ${data.forecast.map(day => `
-          <li>${day.date}: ${day.condition}, ${day.rain_mm} mm, probability ${day.rain_prob}%</li>
-        `).join('')}
+          <li class="list-item">
+            <p class="description-text-condition">${day.date}: ${day.condition}</p>
+            <p class="description-text-probability">${day.rain_mm} mm, probability ${day.rain_prob}%</p>
+          </li>
+          <hr class="hr">`).join('')}
       </ul>
     `;
   } catch (error) {
     document.getElementById('result').innerHTML = `<p>Error: ${error.message}</p>`;
     console.error('Error fetching forecast:', error);
   }
-
-  // try {
-  //   const res = await fetch(`/api/weather?city=${city}`);
-  //   if (!res.ok) {
-  //     throw new Error(`HTTP error! status: ${res.status}`);
-  //   }
-  //   const data = await res.json();
-
-  //   if (!data.forecast || !Array.isArray(data.forecast)) {
-  //     throw new Error('Forecast data is missing or invalid');
-  //   }
-
-  //   const div = document.getElementById('result');
-  //   div.innerHTML = `
-  //     <h2>Forecast for ${data.city}, ${data.country}</h2>
-  //     <ul>
-  //       ${data.forecast.map(day => `
-  //         <li>${day.date}: ${day.condition}, ${day.rain_mm} mm, probability ${day.rain_prob}%</li>
-  //       `).join('')}
-  //     </ul>
-  //   `;
-  // } catch (error) {
-  //   document.getElementById('result').innerHTML = `<p>Error: ${error.message}</p>`;
-  //   console.error('Error fetching forecast:', error);
-  // }
 }
 
-// Inicializamos el mapa en Madrid (puedes cambiar coordenadas y zoom)
+// Mapa
+// iniciación del mapa 
 const map = L.map('map').setView([40.4168, -3.7038], 6);
 
 // Capa base de OpenStreetMap
