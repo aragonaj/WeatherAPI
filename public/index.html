@@ -11,24 +11,98 @@
 
     <title>WeatherAPI</title>
 
-    <link src="./css/styles.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+
+    <!-- Google materials: icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- Google materials: fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
 </head>
 
-<body>
-    <h1 class="title">CONSULTA DE LLUVIA</h1>
+<body class="body">
+    <header class="header">
+        <div class="title-wrapper">
+            <h1 class="title">WeatherAPI</h1>
+        </div>
+        <div class="feature-container">
+            <!-- cambiar idioma -->
+            <button class="button button-lenguage" id="lang-toggle" type="button">
+                <span class="material-symbols-outlined">public</span>
+            </button>
+            <!-- cambiar de modo -->
+            <button class="button button-mode" id="mode" type="button">
+                <span class="material-symbols-outlined">bedtime</span>
+            </button>
+        </div>
+    </header>
+    <main class="main">
+        <!-- imagen de fondo -->
+        <img class="image background-image" src="/assets/rain-by-josh-hild.jpg" alt="">
 
-    <input type="text" id="city" placeholder="Enter city">
-    <button onclick="search()">Buscar</button>
+        <div class="description-container">
+            <h2 class="h2-title" id="h2Title">Precipitaciones</h2>
+            <p class="description-text" id="descriptionText1">Consulta la previsión de lluvia de cualquier parte del mundo de los próximos 14 días.</p>
+            <p class="description-text" id="descriptionText2">Puedes introducir el nombre de la ciudad, escribir directamente las coordenadas o hacer clic en el mapa para seleccionar una ubicación y buscar.</p>
+        </div>
 
-    <p>O introduce coordenadas:</p>
-    <label for="lat">Latitud:</label>
-    <input type="number" id="lat" placeholder="Ej: 42.3268824" step="0.0001">
+        <section class="section section-query">
+            <!-- búsqueda por ciudad -->
+            <article class="article article-city-query">
+                <input class="input" type="text" id="cityInput" placeholder="Introduzca una ciudad...">
+            </article>
 
-    <label for="lon">Longitud:</label>
-    <input type="number" id="lon" placeholder="Ej: 0.07126909" step="0.0001">
+            <!-- búsqueda por coordenadas -->
+            <article class="article coordinates-query">
+                <div class="input-wrapper">
+                    <label class="label" id="label1" for="lat">Latitud:</label>
+                    <input class="input" type="number" id="lat" placeholder="Lat: 42.3268824" step="0.0001">
+                </div>
+                
+                <div class="input-wrapper">
+                    <label class="label" id="label2" for="lon">Longitud:</label>
+                    <input class="input" type="number" id="lon" placeholder="Lon: 0.07126909" step="0.0001">
+                </div>
 
-    <div id="result"></div>
+                <!-- Contenedor para el mapa -->
+                <div class="map-container" id="map"></div>
+            </article>
 
+            <button class="button button-search" type="button" onclick="search()">
+                <span class="button-span-font" id="searchButton">Buscar</span>
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </section>
+
+        <!-- contenedor donde se van a mostrar los datos de la API -->
+        <section class="section section-result" id="result"></section>
+    </main>
+    <footer class="footer">
+        <section class="section section-thanks">
+            <div class="description-text-wrapper">
+                <p class="description-text description-text-meteo" id="descriptionText3">Datos proporcionados por:</p>
+                <a class="link" href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>
+            </div>
+        
+            <div class="description-text-wrapper">
+                <p class="description-text description-text-map" id="descriptionText4">Mapa proporcionado por:</p>
+                <a class="link" href="https://nominatim.org/" target="_blank" rel="noopener noreferrer">Nominatim</a>
+            </div>
+        
+        </section>
+        <p class="description-text description-text-author" id="descriptionText5">© A. J. Aragón 2025</p>
+    </footer>
+    <!-- scripts -->
+    <!-- IMPORTANTE que Leaflet cargue antes que cualquier otro script-->
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- lógica -->
     <script src="scripts/index.js"></script>
 </body>
 

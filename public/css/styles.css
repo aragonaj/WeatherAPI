@@ -1,0 +1,298 @@
+:root {
+    /* color palette */
+    /* https://www.shecodes.io/palettes/1313 */
+    --base-color: #385170;
+    --accent-color: #9fd3c7;
+    --primary-color: #142d4c;
+    --secondary-color: #ececec;
+    --dark-color: #283739;
+
+    /* box-shadow */
+    --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+    /* fuentes: https://elementor.com/blog/font-pairing/ */
+    /* font family */
+    --bebas-neue: 'Bebas Neue', sans-serif;
+    --old-standard: 'Old Standard TT', serif;
+
+    /* tamaños pantallas pequeñas */
+    --xxxl-font: 40px;
+    --xxl-font: 30px;
+    --xl-font: 25px;
+    --large-font: 20px;
+    --regular-font: 18px;
+}
+
+* {
+    /* reset */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    background-color: var(--secondary-color);
+}
+
+.link {
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+/* el input contrario al que se está introduciendo texto, se deshabilita */
+input:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* modo oscuro */
+.body.dark-mode {
+  --base-color: #9fd3c7;
+  --accent-color: #385170;
+  --primary-color: #283739;
+  --secondary-color: #142d4c;
+  --dark-color: #ececec;
+}
+
+/* estilos pantallas pequeñas */
+@media only screen and (min-width: 300px) and (max-width: 450px) {
+    .body {
+        position: relative;
+
+        display: grid;
+        grid-template-rows: 3.5rem 1fr auto;
+    }
+
+    /* header */
+    .header {
+        position: sticky;
+        top: 0;
+
+        padding: 0 .75rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        box-shadow: var(--box-shadow);
+        background-color: var(--accent-color);
+
+        z-index: 2;
+    }
+
+    .title {
+        font-weight: 900;
+        font-size: var(--xxxl-font);
+        font-family: var(--bebas-neue);
+
+        color: var(--dark-color);
+    }
+
+    .feature-container {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .header .button {
+        height: 2rem;
+        width: 2rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: none;
+        border-radius: 8px;
+        box-shadow: var(--box-shadow);
+
+        font-family: var(--bebas-neue);
+        font-size: var(--xl-font);
+
+        color: var(--secondary-color);
+        background-color: var(--base-color);
+    }
+
+    .header .material-symbols-outlined {
+        font-size: var(--xl-font);
+    }
+
+    /* main */
+    .main {
+        position: relative;
+        padding: 1rem .75rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: .5rem;
+    }
+
+    .main .background-image {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        height: 100%;
+        width: 100%;
+
+        object-fit: cover;
+
+        z-index: -1;
+
+        /* degradado sobre la imagen */
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 70%);
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: cover;
+
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 70%);
+        mask-repeat: no-repeat;
+        mask-size: cover;
+    }
+
+    .main .description-container {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+    }
+    
+    .main .h2-title {
+        text-align: center;
+
+        font-family: var(--bebas-neue);
+        font-weight: 900;
+        font-size: var(--xxl-font);
+        color: var(--dark-color);
+    }
+
+    .main .description-text {
+        line-height: 1.8rem;
+
+        font-family: var(--old-standard);
+        font-weight: 500;
+        font-size: var(--regular-font);
+        color: var(--dark-color);
+    }
+
+    .main .section {
+        padding: .5rem 0;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .main .article {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .main .input-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+    }
+
+    .main .map-container {
+        height: 16rem;
+        width: 100%;
+
+        border-radius: 8px;
+
+        box-shadow: var(--box-shadow);
+    }
+
+    .main .input {
+        padding: 0 .5rem;
+        height: 2rem;
+        width: 100%;
+
+        border: 2px solid var(--base-color);
+        border-radius: 8px;
+
+        text-align: center;
+
+        font-family: var(--old-standard);
+        font-size: var(--regular-font);
+
+        box-shadow: var(--box-shadow);
+    }
+
+    .main .label {
+        color: var(--secondary-color);
+
+        font-family: var(--bebas-neue);
+        font-weight: 600;
+        font-size: var(--large-font);
+    }
+
+    .main .button {
+        height: 2rem;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+
+        border: none;
+        border-radius: 8px;
+        box-shadow: var(--box-shadow);
+
+        color: var(--accent-color);
+        background-color: var(--base-color);
+    }
+
+    .main .button .button-span-font {
+        font-family: var(--bebas-neue);
+        font-weight: 600;
+        font-size: var(--large-font);
+    }
+
+    .footer {
+        padding: 1rem .75rem;
+
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        background-color: #9fd3c7;
+        /* background-color: var(--secondary-color); */
+    }
+
+    .footer .section {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .footer .description-text-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .25rem;
+    }
+
+    .footer .description-text {
+        font-family: var(--old-standard);
+        font-size: var(--regular-font);
+        font-weight: 500;
+    }
+
+    .footer .link {
+        font-family: var(--bebas-neue);
+        font-size: var(--large-font);
+
+        color: var(--primary-color);
+    }
+}
