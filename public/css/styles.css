@@ -388,13 +388,15 @@ input:disabled {
         font-family: var(--old-standard);
         font-size: var(--font-18);
         font-weight: 500;
+
+        color: var(--dark-color);
     }
 
     .footer .link {
         font-family: var(--bebas-neue);
         font-size: var(--font-20);
 
-        color: var(--primary-color);
+        color: var(--dark-color);
     }
 }
 
